@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
+  root 'catalogues#index'
+  
   devise_for :users
   devise_for :admins
-  # root to: "home#index"
-
+  
   authenticate :admin do
     resources :products
     resources :profiles
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+  resource :cart, only: [:show, :update]
 end

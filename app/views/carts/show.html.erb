@@ -1,0 +1,10 @@
+<h1>Carts</h1>
+
+<% @order.product_orders.each do |item| %>
+  <div>
+    <%= item.product.name %>
+  </div>
+<% end %>
+
+<p><%= pluralize(@order.product_orders.count, "product") %> added to the cart</p>
+<%= link_to "Home", root_path %>
