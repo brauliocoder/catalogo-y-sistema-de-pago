@@ -11,6 +11,16 @@
     </div>
   <% end %>
 
+  <% if @product.images.present? %>
+    <div>
+      <p>Check an image and press update to delete the image selected.</p>
+    </div>
+    <% @product.images.each do |image| %>
+      <%= form.check_box :image_ids, {multiple: true}, image.id, false %>
+      <%= image_tag image.variant(resize: "200x200") %>
+    <% end %>
+  <% end %>
+
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>

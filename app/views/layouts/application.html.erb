@@ -19,6 +19,14 @@
       <%= link_to "Users", new_user_session_path %> |
       <%= link_to "Admins", new_admin_session_path %>
     <% end %>
+
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>

@@ -4,8 +4,7 @@ class Order < ApplicationRecord
   has_many :product_orders
   has_many :products, through: :product_orders
 
-  has_many :payment_methods
-  has_many :payment, through: :payment_methods
+  has_many :payments
 
   def add_to_cart(product_id)
     product = Product.find(product_id)
@@ -15,12 +14,21 @@ class Order < ApplicationRecord
     end
     
   end
-  
-  def not_empty?
-    if self.product_orders.count > 0
-      true
-    end
+
+  def pay_with_method(pm_id)
+    payments.create(payment_method_id: pm_id)
     
-    false
+    self.status = "finished"
+    self.save
+  end
+  
+  def empty?
+    order_count = product_orders.count
+
+    if order_count > 0
+      return false
+    else
+      return true
+    end
   end
 end

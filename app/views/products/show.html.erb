@@ -1,8 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <%= image_tag @product.images.last.variant(resize: "350x350") %>
-</p>
+
+<% @product.images.each do |img| %>
+  <%= image_tag img.variant(resize: "200x200") %>
+<% end %>
+
+  <%# <%= image_tag @product.images.last.variant(resize: "200x200") %>
 
 <p>
   <strong>Name:</strong>

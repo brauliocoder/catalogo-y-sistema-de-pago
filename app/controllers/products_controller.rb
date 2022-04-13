@@ -40,6 +40,12 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+    if params[:product][:image_ids]
+      params[:product][:image_ids].each do |image_id|
+        @product.purge_image(image_id)
+      end
+    end
+
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }

@@ -12,3 +12,13 @@ categories = Category.create(
     { name: 'fisico' }
   ]
 )
+
+payment_methods = PaymentMethod.create(
+  [
+    { name: 'stripe', code: 'STRIPE' },
+    { name: 'paypal', code: 'PAYPAL'},
+    { name: 'transbank credito', code: 'TB-CREDIT'},
+    { name: 'transbank webpay', code: 'TB-WEBPAY'},
+    { name: 'transbank oneclick', code: 'TB-ONECLICK'}
+  ]
+)

@@ -9,5 +9,9 @@ Rails.application.routes.draw do
     resources :profiles
   end
   
-  resource :cart, only: [:show, :update]
+  resource :cart, only: [:show, :update] do
+    member do
+      put :payment_sim
+    end
+  end
 end

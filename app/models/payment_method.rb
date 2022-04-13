@@ -1,4 +1,6 @@
 class PaymentMethod < ApplicationRecord
-  has_many :orders
-  has_many :payment, through: :orders
+  validates_uniqueness_of :name
+  validates_uniqueness_of :code
+  
+  has_many :payments
 end
