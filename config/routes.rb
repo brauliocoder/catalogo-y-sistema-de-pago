@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   
   authenticate :admin do
     resources :products
-    resources :profiles
   end
   
   resource :cart, only: [:show, :update] do

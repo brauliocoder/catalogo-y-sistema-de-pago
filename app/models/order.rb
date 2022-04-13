@@ -10,7 +10,7 @@ class Order < ApplicationRecord
     product = Product.find(product_id)
 
     if not product.nil? && product.stock > 0
-      product_orders.create(product_id: product_id, quantity: 1)
+      product_orders.create(product_id: product_id, quantity: 1, price: product.price)
     end
     
   end

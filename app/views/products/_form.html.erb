@@ -37,6 +37,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price %>
+  </div>
+
+  <div class="field">
     <%= form.collection_select(:category_id, Category.all, :id, :name, prompt: true) %>
   </div>
 

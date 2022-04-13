@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   validates_presence_of :name, :description, :stock, :category_id
-  validates_numericality_of :stock, greater_than_or_equal_to: 0, message: "must be 0 or greater"
+  validates_numericality_of [:stock, :price], greater_than_or_equal_to: 0, message: "must be 0 or greater"
   validate :digital_length
 
   has_many_attached :images
